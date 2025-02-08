@@ -39,6 +39,8 @@ class DatabaseManager:
                 "SELECT CONCAT(RTRIM(seriefolio), numcheque), fecha, cierre, total, fp.descripcion "
                 "FROM cheques c "
                 "INNER JOIN chequespagos cp ON c.folio = cp.folio "
+                "FROM tempcheques c "
+                "INNER JOIN tempchequespagos cp ON c.folio = cp.folio "
                 "INNER JOIN formasdepago fp ON cp.idformadepago = fp.idformadepago "
                 f"WHERE fecha BETWEEN '{fecha_desde}' AND '{fecha_hasta}' AND "
             )
