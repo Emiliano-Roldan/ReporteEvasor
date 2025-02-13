@@ -40,7 +40,7 @@ class DatabaseManager:
                 "FROM cheques c "
                 "INNER JOIN chequespagos cp ON c.folio = cp.folio "
                 "INNER JOIN formasdepago fp ON cp.idformadepago = fp.idformadepago "
-                f"WHERE fecha BETWEEN '{fecha_desde}' AND '{fecha_hasta}' AND "
+                f"WHERE fecha BETWEEN '{fecha_desde} 00:00:00' AND '{fecha_hasta} 23:59:59' AND cancelado = 0 AND "
             )
             
             connection = cs.SQLServerConnection(
